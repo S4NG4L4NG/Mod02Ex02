@@ -3,17 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Mod02Ex02.View.EmployeePage"
              Title="EmployeePage">
-    <VerticalStackLayout>
-        <Label Text="{Binding FullName}" FontSize="50"/>
-        <Button Text="Load Manager Data" Command="{Binding LoademployeeDataCommand}"/>
+    <<VerticalStackLayout BackgroundColor="LightGray" Padding="10">
+    <Label Text="{Binding FullName}" 
+       FontSize="50" 
+       TextColor="DarkBlue" 
+       HorizontalOptions="Center" 
+       VerticalOptions="Start"/>
 
-        <ListView ItemsSource="{Binding Employees}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding FullNames}" 
-                           Detail="{Binding IsActive}"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </VerticalStackLayout>
+    <Button Text="Load Manager Data" 
+        Command="{Binding LoademployeeDataCommand}" 
+        BackgroundColor="DarkBlue" 
+        TextColor="White" 
+        FontSize="20" 
+        CornerRadius="10" 
+        Padding="10,5"/>
+
+    <ListView ItemsSource="{Binding Employees}" 
+          BackgroundColor="White"
+          SeparatorColor="LightGray" 
+          HasUnevenRows="True">
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding FullNames}" 
+                      Detail="{Binding IsActive}" 
+                      TextColor="Black" 
+                      DetailColor="Gray"/>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+    </ListView>
+</VerticalStackLayout>
 </ContentPage>
